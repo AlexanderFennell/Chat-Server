@@ -5,15 +5,12 @@ using System.Text;
 
 class Program
 {
-    const string ipAddressString = "127.0.0.1";
     const int port = 8000;
     static public List<string> userNameList = new List<string>();
 
     static void  Main()
     {
-        
-        IPAddress ipAddress = IPAddress.Parse(ipAddressString);
-        TcpListener server = new TcpListener(ipAddress, port);
+        TcpListener server = new TcpListener(IPAddress.Any, port);
         server.Start();
         Console.WriteLine($"Server started.");
         while (true)
